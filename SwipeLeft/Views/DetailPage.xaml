@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true"
+             xmlns:templates="clr-namespace:SwipeLeft.Templates"
+             x:Class="SwipeLeft.Views.DetailPage">
+    
+    <ContentPage.Content>
+    </ContentPage.Content>
+    
+    <Grid>
+        <ListView x:Name="listview"
+                  RowHeight="100"
+                  HasUnevenRows="true"
+                  SeparatorVisibility="Default"
+                  SeparatorColor="Fuchsia"
+                  SelectionMode="None"
+                  ItemsSource="{Binding Items}">
+            <ListView.ItemTemplate>
+                <OnPlatform x:TypeArguments="DataTemplate">
+                    <OnPlatform.Android>
+                        
+                    </OnPlatform.Android>
+                    <OnPlatform.iOS>
+                        <DataTemplate>
+                            <ViewCell>
+                                <templates:PeopleItemTemplate />
+                            </ViewCell>
+                        </DataTemplate>
+                    </OnPlatform.iOS>
+                </OnPlatform>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+    
+</ContentPage>

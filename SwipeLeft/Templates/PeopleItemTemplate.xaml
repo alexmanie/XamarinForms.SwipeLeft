@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="SwipeLeft.Templates.PeopleItemTemplate">
+    
+    <ContentView.Content>
+        <Grid Margin="10" x:Name="grid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="20" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" Text="{Binding Name}" />
+            <Label x:Name="lblEmail" Grid.Row="1" Grid.Column="0" FontSize="Small" Text="{Binding Email}" />
+            
+            <Grid x:Name="gridGlobalActions" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" 
+                  RowSpacing="0" ColumnSpacing="2" BackgroundColor="Silver">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Grid x:Name="gridAction1" BackgroundColor="Lime" Grid.Column="0">
+                    <Label TextColor="White" Text="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                           FontSize="Large" FontAttributes="Bold" />
+                </Grid>
+                <Grid x:Name="gridAction2" BackgroundColor="Orange" Grid.Column="1">
+                    <Label TextColor="White" Text="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                           FontSize="Large" FontAttributes="Bold" />
+                </Grid>
+                <Grid x:Name="gridClose" BackgroundColor="Red" Grid.Column="2">
+                    <Label TextColor="White" Text="X" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                           FontSize="Large" FontAttributes="Bold" />
+                </Grid>
+            </Grid>
+            
+        </Grid>
+    </ContentView.Content>
+</ContentView>

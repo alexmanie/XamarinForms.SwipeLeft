@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:SwipeLeft" 
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true"
+             x:Class="SwipeLeft.MainPage">
+    
+    <ContentPage.Content>
+        
+        <StackLayout>
+            
+            <!-- welcome -->
+            <Label Text="Welcome to SwipeLeft" Margin="0,100,0,0" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+            
+            <!-- navigate -->
+            <Button Margin="0,0,0,100" Text="Navigate" Command="{Binding NavigateCommand}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+            
+            <!-- separator -->
+            <BoxView HeightRequest="1" BackgroundColor="Black" HorizontalOptions="FillAndExpand" />
+            
+            <!-- custom editor -->
+            <Grid BackgroundColor="Silver">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />    
+                    <RowDefinition Height="50" />    
+                    <RowDefinition Height="*" />    
+                </Grid.RowDefinitions>
+                
+                <Label Text="{Binding Title}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                
+                <local:CustomEditor x:Name="editor" Grid.Row="1" BackgroundColor="Lime"
+                      IsSpellCheckEnabled="false" IsTextPredictionEnabled="true"
+                      Keyboard="Chat" IsPlatformEnabled="true">
+                    <Editor.Keyboard>
+                        <Keyboard x:FactoryMethod="Create">
+                            <x:Arguments>
+                                <KeyboardFlags>None</KeyboardFlags>
+                            </x:Arguments>
+                        </Keyboard>
+                    </Editor.Keyboard>
+                </local:CustomEditor>    
+            </Grid>
+            
+        </StackLayout>
+        
+    </ContentPage.Content>
+    
+</ContentPage>
